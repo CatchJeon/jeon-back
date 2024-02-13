@@ -14,7 +14,7 @@ import lombok.*;
 public class RegisterForm {
     private Long id;
 
-    @Pattern(regexp="^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}$")
+    @Pattern(regexp="^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}$", message="이메일 형식으로 써주세요.")
     private String mail;
 
     private String passw;

@@ -25,14 +25,15 @@ public class RegisterController {
         // 유효성 검사 오류가 발생한 경우
         if (bindingResult.hasErrors()) {
             StringBuilder sb = new StringBuilder();
-            bindingResult.getAllErrors().forEach(objectError -> {
-                FieldError field = (FieldError) objectError;
-                String message = objectError.getDefaultMessage();
+            bindingResult.getFieldErrors().forEach(fieldError -> {
+                String fieldName = fieldError.getField();
+                String message = fieldError.getDefaultMessage();
 
-                System.out.println(field.getField() + ": " + message);
+                System.out.println(fieldName + ": " + message);
 
-                sb.append("field: " + field.getField());
-                sb.append("message: " + message);
+                //sb.append("field: " + field.getField());
+                //sb.append("message: " + message);
+                sb.append(message).append(" ");
             });
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(sb.toString());
         }
