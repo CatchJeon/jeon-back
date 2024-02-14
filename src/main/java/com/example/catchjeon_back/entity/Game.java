@@ -11,7 +11,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Getter
-public class Register {
+public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,7 +22,7 @@ public class Register {
     @Column
     private String nickname;
 
-    public void patch(Register register) {
+    public void patch(Game register) {
         if (register.mail != null)
             this.mail = register.mail;
         if (register.passw != null)
@@ -30,4 +30,5 @@ public class Register {
         if (register.nickname != null)
             this.nickname = register.nickname;
     }
+
 }

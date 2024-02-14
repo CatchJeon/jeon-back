@@ -11,7 +11,7 @@ import lombok.ToString;
 @Getter
 @Setter
 
-public class RegisterForm {
+public class Login1Form {
     private Long id;
     private String mail;
     private String passw;
@@ -19,4 +19,5 @@ public class RegisterForm {
     public Game toEntity() {
         return new Game(id, mail, passw, nickname);
     }
+
 }
