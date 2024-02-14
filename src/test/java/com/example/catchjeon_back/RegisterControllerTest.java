@@ -1,6 +1,7 @@
 package com.example.catchjeon_back;
 
 import com.example.catchjeon_back.dto.RegisterForm;
+import com.example.catchjeon_back.entity.Register;
 import com.example.catchjeon_back.repository.RegisterRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -80,4 +81,6 @@ public class RegisterControllerTest {
             throw new RuntimeException(e);
         }
     }
+
+
 }

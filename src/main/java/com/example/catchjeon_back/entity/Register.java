@@ -1,10 +1,7 @@
 package com.example.catchjeon_back.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Entity
 @AllArgsConstructor
@@ -15,12 +12,19 @@ public class Register {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+    @Column(unique = true)
     private String mail;
     @Column
     private String passw;
-    @Column
+    @Column(unique = true)
     private String nickname;
+
+    @Builder
+    public Register(String mail, String passw, String nickname){
+        this.mail=mail;
+        this.passw=passw;
+        this.nickname=nickname;
+    }
 
     public void patch(Register register) {
         if (register.mail != null)
